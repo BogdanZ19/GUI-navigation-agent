@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(/src/**)",
+      "Edit(/tests/**)",
+      "Edit(**/*.py)",
+      "Edit(/pyproject.toml)"
+    ]
+  }
+}

@@ -1,13 +1,19 @@
 [project]
 name = "gui-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "GUI navigation agent"
 readme = "README.md"
 authors = [
     { name = "BogdanZ19", email = "bogdanzainia1@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "mss>=10.2.0",
+    "pywin32>=312"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9.0.2"]
 
 [project.scripts]
 gui-agent = "gui_agent.cli:main"
