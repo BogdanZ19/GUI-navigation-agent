@@ -1,0 +1,12 @@
+﻿1. Large Language Model-Brained GUI Agents: A Survey 
+   1. https://arxiv.org/pdf/2411.18279
+2. ScreenAgent 
+   1. https://arxiv.org/pdf/2402.07945
+3. WebNav: An Intelligent Agent for Voice-Controlled Web Navigation 
+   1. https://arxiv.org/html/2503.13843v1
+4. CowPilot: A Framework for Autonomous and Human-Agent Collaborative Web Navigation 
+   1. https://arxiv.org/abs/2501.16609
+5. UITron-Speech: Towards Automated GUI Agents Based on Speech Instructions 
+   1. https://arxiv.org/pdf/2506.11127 
+6. SGGNet²: Speech-Scene Graph Grounding Network for Speech-guided Navigation 
+   1. https://arxiv.org/pdf/2307.07468
