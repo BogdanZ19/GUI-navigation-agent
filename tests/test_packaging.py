@@ -1,17 +1,18 @@
 from importlib.metadata import requires, entry_points
 
+import pytest
+
 def get_requirements():
     return requires("gui_agent")
 
 
-def dependency_exists(dependency: str, **kwargs):
-    is_dev_dep = kwargs.get("is_dev_dep", None)
+def dependency_exists(dependency: str, is_dev_dep: bool = False) -> bool:
     requirements = get_requirements()
-    
+    prefix = f"{dependency}>="
     if (is_dev_dep):
-        return any(f"{dependency}>=" in d and 'extra == "dev"' in d for d in requirements)     
+        return any(d.startswith(prefix) and 'extra == "dev"' in d for d in requirements)     
     
-    return any(f"{dependency}>=" in d for d in requirements) 
+    return any(d.startswith(prefix) for d in requirements) 
 
 
 def test_requirements_exist():
@@ -31,4 +32,20 @@ def test_dep_exists_pywin():
 
 
 def test_dep_exists_pytest():
-    assert dependency_exists("pytest", is_dev_dep = True)
+    assert dependency_exists("pytest", is_dev_dep=True)
+    
+def test_dep_missing_numpy():
+    assert not dependency_exists("numpy")
+
+
+def test_partial_name_is_not_a_dep():
+    assert not dependency_exists("ss")
+
+
+def test_mss_is_not_a_dev_dep():
+    assert not dependency_exists("mss", is_dev_dep=True)
+
+
+def test_typo_in_keyword_raises():
+    with pytest.raises(TypeError):
+        dependency_exists("mss", is_dev=True)
